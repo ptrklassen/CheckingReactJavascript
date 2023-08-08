@@ -14,7 +14,7 @@ export default function App() {
       <h1>ToDo List</h1>
 
       <ToDoList todos={todos}/>
-      {/* <AddToDo setTodos={setTodos}/> */}
+      <AddToDo setTodos={setTodos}/>
     </div>
   )
 }
@@ -30,4 +30,24 @@ function ToDoList({ todos }) {
   )  
 }
 
-
+function AddToDo({ setTodos }) {
+  function handleAddToDo(event) {
+    event.preventDefault();
+    const text = event.target.elements.addTodo.value;
+    const todo = {
+      id: 4,
+      text,
+      done: false
+    };
+    setTodos(previousTodos => {
+      return previousTodos.concat(todo);
+    });
+  }
+  
+  return (
+    <form onSubmit={ handleAddToDo }>
+      <input name="addTodo" placeholder="Add ToDo" />
+      <button type="submit">Add</button>
+    </form>
+  );
+}
