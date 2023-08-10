@@ -82,11 +82,11 @@ function DeleteTodo({ todo, setTodos }) {
     }
   }
   return (
-    <span 
+    <button 
       onClick={handleDeleteTodo}
       role="button"
-      style={{ marginLeft: 10, color: "red", fontWeight: "bold", cursor: "pointer" }}
-      >{"\u274C"}</span>
+      style={{ marginLeft: 10, cursor: "pointer", border: "none", backgroundColor: "white" }}
+      >{"\u274C"}</button>
   )
 }
 
