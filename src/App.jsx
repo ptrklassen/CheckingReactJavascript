@@ -59,14 +59,21 @@ function PrioritizeTodo({ todo, setTodos }) {
     );
       })
   }
+  const options = [
+    {value: "", text: "Priority"},
+    {value: 1, text: "Frog"},
+    {value: 2, text: "Today"},
+    {value: 3, text: "This week"},
+    {value: 4, text: "This month"},
+    {value: 5, text: "Future"},
+  ];  
   return (
     <select name="priority" style={{ marginRight: 5, width: 90 }} value={todo.priority} onChange={ handleChangePriority }>
-      <option value="">Priority</option>
-      <option value="1">Frog</option>
-      <option value="2">Today</option>
-      <option value="3">This Week</option>
-      <option value="4">This Month</option>
-      <option value="5">Future</option>
+      {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
+        ))}
     </select>
   )
 }
