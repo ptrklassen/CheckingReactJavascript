@@ -23,11 +23,11 @@ export default function TodoList({ todos, setTodos }) {
   }
   return (
     <ul>
-      {todos.map((todo) => {const dateMessage = todo.done ? `Completed ${todo.dateCompleted}` : `Since ${todo.dateAdded}`; return (
+      {todos.map((todo) => {const dateMessage = todo.done ? `Completed on ${todo.dateCompleted}` : `Added on ${todo.dateAdded}`; return (
         <li 
           onDoubleClick={() => handleToggleTodo(todo)}
           // renders done todo with linethrough
-          style={{ textDecoration: todo.done ? "line-through" : "" }} key={todo.id}> <PrioritizeTodo todo={todo} setTodos={setTodos} /> {todo.text} {dateMessage}<DeleteTodo todo={todo} setTodos={setTodos} /></li>
+          style={{ textDecoration: todo.done ? "line-through" : "" }} key={todo.id}> <PrioritizeTodo todo={todo} setTodos={setTodos} /> {todo.text}, {dateMessage}<DeleteTodo todo={todo} setTodos={setTodos} /></li>
         )})}
     </ul>
   );
