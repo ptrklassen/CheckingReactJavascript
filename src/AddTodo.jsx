@@ -5,10 +5,12 @@ const inputRef = React.useRef();
   function handleAddToDo(event) {
     event.preventDefault();
     const text = event.target.elements.addTodo.value;
+    const dateAdded = new Date().toDateString();
     const todo = {
       id: Math.random(),
       text,
-      done: false
+      done: false,
+      dateAdded,
     };
     setTodos(previousTodos => {
       return previousTodos.concat(todo);

@@ -1,8 +1,10 @@
 import React from "react";
+
 import './App.css';
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
+// todo object: {id: 1, text: "todo description", "done": false, "priority": 0}
 
 export default function App() {
   const [todos, setTodos] = React.useState([])

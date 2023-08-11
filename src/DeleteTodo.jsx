@@ -12,7 +12,6 @@ export default function DeleteTodo({ todo, setTodos }) {
   return (
     <button 
       onClick={handleDeleteTodo}
-      role="button"
       style={{ marginLeft: 10, cursor: "pointer", border: "none", backgroundColor: "white" }}
       >{"\u274C"}</button>
   )
