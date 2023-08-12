@@ -5,7 +5,18 @@ import PrioritizeTodo from "./PrioritizeTodo"
 
 // Basic list of all the todos
 
-export default function TodoList({ todos, setTodos }) {
+export default function TodoList({ todos, setTodos, active }) {
+  let filteredTodos = [];
+  switch(active) {
+    case "Active":
+      filteredTodos = todos.filter(todo => !todo.done);
+      break;
+    case "Completed":
+      filteredTodos = todos.filter(todo => todo.done);
+      break;
+    default:
+      filteredTodos = [...todos]
+  }
   //helper function to toggle 'done' state
   function handleToggleTodo(todo) {
     const updatedTodos = todos.map(todoListItem => 
@@ -23,7 +34,7 @@ export default function TodoList({ todos, setTodos }) {
   }
   return (
     <ul>
-      {todos.map((todo) => {const dateMessage = todo.done ? `Completed on ${todo.dateCompleted}` : `Added on ${todo.dateAdded}`; return (
+      {filteredTodos.map((todo) => {const dateMessage = todo.done ? `Completed on ${todo.dateCompleted}` : `Added on ${todo.dateAdded}`; return (
         <li 
           onDoubleClick={() => handleToggleTodo(todo)}
           // renders done todo with linethrough
